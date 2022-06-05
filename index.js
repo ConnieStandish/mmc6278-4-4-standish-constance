@@ -39,21 +39,21 @@ remainingGuesses.textContent = 10
 
 //Set keyboard event
 
-document.onkeyup = function(e) {
-  var letters = 'abcdefghijklmnopqrstuvwxyzd'
-  if (!letters.includes(e.key)) return
-  // console.log(e.key)
+// document.onkeyup = function(e) {
+//   var letters = 'abcdefghijklmnopqrstuvwxyzd'
+//   if (!letters.includes(e.key)) return
+//   // console.log(e.key)
   
-  if (words === newStr) {
-    newStr.replace(/_/g, 'abcdefghijklmnopqrstuvwxyz')
-  }  else {
-    return null
-  }
+//   if (words === newStr) {
+//     newStr.replace(/_/g, 'abcdefghijklmnopqrstuvwxyz')
+//   }  else {
+//     return null
+//   }
 
-  textContent.newStr = e.key
+//   textContent.newStr = e.key
 
   
-}
+// }
 
 // var wordGuess = newStr.replace(/_/g, 'abcdefghijklmnopqrstuvwxyz')
 
@@ -68,6 +68,15 @@ document.onkeyup = function(e) {
 //   }
   
 // })
+
+// var wordGuess = newStr.replace(/_/g, 'abcdefghijklmnopqrstuvwxyz')
+
+for (let i = 0; i < newStr.length; i++) {
+  var wordGuess = newStr[i];
+  newStr[i].onkeyup = function(e) {
+    wordGuess.textContent = this.textContent
+  }
+}
 
 
 
