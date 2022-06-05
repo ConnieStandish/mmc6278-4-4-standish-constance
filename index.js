@@ -30,9 +30,9 @@ var str = words[Math.floor(Math.random() * words.length)]
 
 
 //Replace letter with underscores
-var newStr = str.replace(/[abcdefghijklmnopqrstuvwxyz]/g, '_')
-console.log(newStr)
-wordToGuess.textContent = newStr
+wordToGuess.textContent = str.replace(/[abcdefghijklmnopqrstuvwxyz]/g, '_')
+// console.log(newStr)
+// wordToGuess.textContent = newStr
 
 //Display 10 guesses
 remainingGuesses.textContent = 10
@@ -46,16 +46,16 @@ document.onkeyup = function(e) {
   if (!letters.includes(e.key)) return
   console.log(e.key)
 
-  if (newStr.includes(e.key)) {
+  if (str.includes(e.key)) {
     correctGuess.push(e.key)
   } else {
     wrongGuess.push(e.key)
   }
 
   wordToGuess.textContent = ""
-  for (let i = 0; i < newStr.length; i++) {
-    if (correctGuess.includes(newStr[i])) {
-      wordToGuess.textContent += newStr[i]
+  for (let i = 0; i < str.length; i++) {
+    if (correctGuess.includes(str[i])) {
+      wordToGuess.textContent += str[i]
     } else {
       wordToGuess.textContent += '_'
     }
