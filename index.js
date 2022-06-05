@@ -58,35 +58,16 @@ document.onkeyup = function(e) {
       wordToGuess.textContent += str[i]
     } else {
       wordToGuess.textContent += '_'
+      incorrectLetters.textContent = wrongGuess
     }
+
     
   }
 
   
 }
 
-// var wordGuess = newStr.replace(/_/g, 'abcdefghijklmnopqrstuvwxyz')
 
-// document.addEventListener('keyup', function(e) {
-//   var letters = 'abcdefghijklmnopqrstuvwxyzd'
-//   if (!letters.includes(e.key)) return
-  
-//   if (wordGuess === words) {
-//     wordGuess.textContent = e.key
-//   } else {
-//     return null
-//   }
-  
-// })
-
-// var wordGuess = newStr.replace(/_/g, 'abcdefghijklmnopqrstuvwxyz')
-
-// for (let i = 0; i < newStr.length; i++) {
-//   var wordGuess = newStr[i];
-//   newStr[i].onkeyup = function(e) {
-//     wordGuess.textContent = this.textContent
-//   }
-// }
 
 
 
