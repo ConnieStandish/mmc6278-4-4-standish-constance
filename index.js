@@ -38,22 +38,35 @@ wordToGuess.textContent = newStr
 remainingGuesses.textContent = 10
 
 //Set keyboard event
+var wordDisp = document.querySelector('#words-example')
+var correctGuess = []
+var wrongGuess = []
 
-// document.onkeyup = function(e) {
-//   var letters = 'abcdefghijklmnopqrstuvwxyzd'
-//   if (!letters.includes(e.key)) return
-//   // console.log(e.key)
+wordDisp.textContent = newStr.replace('_','abcdefghijklmnopqrstuvqxyz')
+
+document.onkeyup = function(e) {
+  var letters = 'abcdefghijklmnopqrstuvwxyzd'
+  if (!letters.includes(e.key)) return
+  console.log(e.key)
+
+  if (newStr.includes(e.key)) {
+    correctGuess.push(e.key)
+  } else {
+    wrongGuess.push(e.key)
+  }
+
+  wordDisp.textContent = ""
+  for (let i = 0; i < newStr.length; i++) {
+    if (correctGuess.includes(newStr[i])) {
+      wordDisp.textContent += newStr[i]
+    } else {
+      wordDisp.textContent += '_'
+    }
+    
+  }
+
   
-//   if (words === newStr) {
-//     newStr.replace(/_/g, 'abcdefghijklmnopqrstuvwxyz')
-//   }  else {
-//     return null
-//   }
-
-//   textContent.newStr = e.key
-
-  
-// }
+}
 
 // var wordGuess = newStr.replace(/_/g, 'abcdefghijklmnopqrstuvwxyz')
 
@@ -71,12 +84,12 @@ remainingGuesses.textContent = 10
 
 // var wordGuess = newStr.replace(/_/g, 'abcdefghijklmnopqrstuvwxyz')
 
-for (let i = 0; i < newStr.length; i++) {
-  var wordGuess = newStr[i];
-  newStr[i].onkeyup = function(e) {
-    wordGuess.textContent = this.textContent
-  }
-}
+// for (let i = 0; i < newStr.length; i++) {
+//   var wordGuess = newStr[i];
+//   newStr[i].onkeyup = function(e) {
+//     wordGuess.textContent = this.textContent
+//   }
+// }
 
 
 
