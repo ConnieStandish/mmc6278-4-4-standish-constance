@@ -20,7 +20,7 @@ var previousWord = document.getElementById('previous-word')
 var incorrectLetters = document.getElementById('incorrect-letters')
 var remainingGuesses = document.getElementById('remaining-guesses')
 
-var remainingGuesses = 10
+// var remainingGuesses = 10
 var wins = 0
 var losses = 0
 
@@ -30,18 +30,32 @@ var str = words[Math.floor(Math.random() * words.length)]
 
 
 //Replace letter with underscores
-newStr = str.replace(/[abcdefghijlmnopqrstuvwxyz]/g, '_')
+var newStr = str.replace(/[abcdefghijklmnopqrstuvwxyz]/g, '_')
 console.log(newStr)
 wordToGuess.textContent = newStr
 
-// var displayHiddenWord = function() {
-//   game.replace([a-z]/gi, '_')
-// }
+//Display 10 guesses
+remainingGuesses.textContent = 10
 
-document.onkeyup = function(event) {
+//Set keyboard event
+
+document.onkeyup = function(e) {
+  var letters = 'abcdefghijklmnopqrstuvwxyzd'
+  if (!letters.includes(e.key)) return
+  console.log(e.key)
   
- 
+  if (letters === newStr) {
+    newStr.replaceAll('_', 'abcdefghijklmnopqrstuvwxyz')
+  }  else {
+    return null
+  }
+
+  textContent.newStr = e.key
+
+  
 }
+
+
   
   
 
