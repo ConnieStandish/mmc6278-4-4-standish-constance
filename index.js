@@ -25,10 +25,14 @@ var wins = 0
 var losses = 0
 
 //Generate random word
-var game = words[Math.floor(Math.random() * words.length)]
-console.log(game)
-wordToGuess.textContent = game
-game.replace([a-z]/gi, '_')
+var str = words[Math.floor(Math.random() * words.length)]
+// console.log(word)
+
+
+//Replace letter with underscores
+newStr = str.replace(/[abcdefghijlmnopqrstuvwxyz]/g, '_')
+console.log(newStr)
+wordToGuess.textContent = newStr
 
 // var displayHiddenWord = function() {
 //   game.replace([a-z]/gi, '_')
