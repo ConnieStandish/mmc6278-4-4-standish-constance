@@ -38,11 +38,8 @@ wordToGuess.textContent = newStr
 remainingGuesses.textContent = 10
 
 //Set keyboard event
-var wordDisp = document.querySelector('#words-example')
 var correctGuess = []
 var wrongGuess = []
-
-wordDisp.textContent = newStr.replace('_','abcdefghijklmnopqrstuvqxyz')
 
 document.onkeyup = function(e) {
   var letters = 'abcdefghijklmnopqrstuvwxyzd'
@@ -55,12 +52,12 @@ document.onkeyup = function(e) {
     wrongGuess.push(e.key)
   }
 
-  wordDisp.textContent = ""
+  wordToGuess.textContent = ""
   for (let i = 0; i < newStr.length; i++) {
     if (correctGuess.includes(newStr[i])) {
-      wordDisp.textContent += newStr[i]
+      wordToGuess.textContent += newStr[i]
     } else {
-      wordDisp.textContent += '_'
+      wordToGuess.textContent += '_'
     }
     
   }
