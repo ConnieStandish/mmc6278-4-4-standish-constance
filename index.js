@@ -42,10 +42,10 @@ remainingGuesses.textContent = 10
 document.onkeyup = function(e) {
   var letters = 'abcdefghijklmnopqrstuvwxyzd'
   if (!letters.includes(e.key)) return
-  console.log(e.key)
+  // console.log(e.key)
   
-  if (letters === newStr) {
-    newStr.replaceAll('_', 'abcdefghijklmnopqrstuvwxyz')
+  if (words === newStr) {
+    newStr.replace(/_/g, 'abcdefghijklmnopqrstuvwxyz')
   }  else {
     return null
   }
@@ -55,8 +55,22 @@ document.onkeyup = function(e) {
   
 }
 
+// var wordGuess = newStr.replace(/_/g, 'abcdefghijklmnopqrstuvwxyz')
 
+// document.addEventListener('keyup', function(e) {
+//   var letters = 'abcdefghijklmnopqrstuvwxyzd'
+//   if (!letters.includes(e.key)) return
   
+//   if (wordGuess === words) {
+//     wordGuess.textContent = e.key
+//   } else {
+//     return null
+//   }
+  
+// })
+
+
+
   
 
  
