@@ -31,7 +31,8 @@ var str = words[Math.floor(Math.random() * words.length)]
 wordToGuess.textContent = str.replace(/[abcdefghijklmnopqrstuvwxyz]/g, '_')
 
 //Display 10 guesses
-remainingGuesses.textContent = parseInt('10')
+remainingGuesses.textContent = 10
+
 
 //Set keyboard event
 var correctGuess = []
@@ -56,6 +57,10 @@ document.onkeyup = function(e) {
       incorrectLetters.textContent = wrongGuess
       
     }
+
+    // if (wordToGuess === true) {
+    //   location.reload()
+    // }
   
   }
 
