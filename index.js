@@ -26,6 +26,9 @@ var wordsLeft = 10
 var wins = 0
 var losses = 0
 
+var correctGuess = []
+var wrongGuess = []
+
 //Generate random word
 var str = words[Math.floor(Math.random() * words.length)]
 
@@ -35,10 +38,19 @@ wordToGuess.textContent = str.replace(/[abcdefghijklmnopqrstuvwxyz]/g, '_')
 //Display 10 guesses
 remainingGuesses.textContent = wordsLeft
 
+//Create reset function
+function reset() {
+  previousWord.textContent = str
+    str = words[Math.floor(Math.random() * words.length)]
+    wordToGuess.textContent = str.replace(/[abcdefghijklmnopqrstuvwxyz]/g, '_')
+    wordsLeft = 10
+    remainingGuesses.textContent = wordsLeft
+    incorrectLetters.textContent = ""
+    correctGuess = []
+    wrongGuess = []
+}
 
 //Set keyboard event
-var correctGuess = []
-var wrongGuess = []
 
 document.onkeyup = function (e) {
   // e.preventDefault()
@@ -62,51 +74,21 @@ document.onkeyup = function (e) {
     } else {
       wordToGuess.textContent += '_'
       incorrectLetters.textContent = wrongGuess
-
     }
   }
-  //handle win or loss
-  //win is no more underscores and more than 0 remaining guesses
-  //loss would be reach 0 and answer incomplete
-
   if (wordToGuess.textContent === str && wordsLeft > 0) {
     wins++
     gameWin.textContent = wins
-    // previousWord.textContent = str
-    // str = words[Math.floor(Math.random() * words.length)]
-    // wordToGuess.textContent = str.replace(/[abcdefghijklmnopqrstuvwxyz]/g, '_')
-    // wordsLeft = 10
-    // remainingGuesses.textContent = wordsLeft
-    // incorrectLetters.textContent = ""
-    // correctGuess = []
-    // wrongGuess = []
     reset()
   } else if (wordToGuess.textContent !== str && wordsLeft <= 0) {
     losses++
     gameLoss.textContent = losses
-    // previousWord.textContent = str
-    // str = words[Math.floor(Math.random() * words.length)]
-    // wordToGuess.textContent = str.replace(/[abcdefghijklmnopqrstuvwxyz]/g, '_')
-    // wordsLeft = 10
-    // remainingGuesses.textContent = wordsLeft
-    // incorrectLetters.textContent = ""
-    // correctGuess = []
-    // wrongGuess = []
   reset()
   } 
 
 }
 
-function reset() {
-  previousWord.textContent = str
-    str = words[Math.floor(Math.random() * words.length)]
-    wordToGuess.textContent = str.replace(/[abcdefghijklmnopqrstuvwxyz]/g, '_')
-    wordsLeft = 10
-    remainingGuesses.textContent = wordsLeft
-    incorrectLetters.textContent = ""
-    correctGuess = []
-    wrongGuess = []
-}
+
 
 
 
