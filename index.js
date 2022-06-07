@@ -39,6 +39,7 @@ var correctGuess = []
 var wrongGuess = []
 
 document.onkeyup = function(e) {
+  // e.preventDefault()
   var letters = 'abcdefghijklmnopqrstuvwxyzd'
   if (!letters.includes(e.key)) return
 
@@ -57,16 +58,20 @@ document.onkeyup = function(e) {
       incorrectLetters.textContent = wrongGuess
       
     }
-
-    // if (wordToGuess === true) {
-    //   location.reload()
-    // }
   
   }
 
-  
 }
 
+//Track game state
+function gameState() {
+if (wordToGuess !== str) {
+      incorrectLetters--
+    }
+
+}
+
+//how to reload game with variables reset? 
 
 
 
