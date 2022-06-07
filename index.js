@@ -53,12 +53,10 @@ function reset() {
 //Set keyboard event
 
 document.onkeyup = function (e) {
-  // e.preventDefault()
   var letters = 'abcdefghijklmnopqrstuvwxyzd'
   if (!letters.includes(e.key)) return
 
   if (str.includes(e.key) && !correctGuess.includes(e.key)) {
-
     correctGuess.push(e.key)
 
   } else if (!wrongGuess.includes(e.key)) {
@@ -85,7 +83,6 @@ document.onkeyup = function (e) {
     gameLoss.textContent = losses
   reset()
   } 
-
 }
 
 
